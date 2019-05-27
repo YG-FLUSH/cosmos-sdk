@@ -84,6 +84,10 @@ func newDbKeybase(db dbm.DB) Keybase {
 	}
 }
 
+func ConvertLocalInfo(info Info) localInfo {
+	return info.(localInfo)
+}
+
 // NewInMemory creates a transient keybase on top of in-memory storage
 // instance useful for testing purposes and on-the-fly key generation.
 func NewInMemory() Keybase { return dbKeybase{dbm.NewMemDB()} }
