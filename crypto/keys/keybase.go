@@ -77,6 +77,10 @@ type dbKeybase struct {
 	db dbm.DB
 }
 
+func ConvertLocalInfo(info Info) localInfo{
+	return info.(localInfo)
+}
+
 // newDbKeybase creates a new keybase instance using the passed DB for reading and writing keys.
 func newDbKeybase(db dbm.DB) Keybase {
 	return dbKeybase{
