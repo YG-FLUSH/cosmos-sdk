@@ -25,7 +25,7 @@ func printPrivateKey(dir string, name string) {
 
 func main() {
 	dir := "/Users/wenyeguang/.gaiacli"
-	name := "hot-wallet"
+	name := "hot_wallet"
 	printPrivateKey(dir, name)
 	name = "deposit"
 	printPrivateKey(dir, name)
