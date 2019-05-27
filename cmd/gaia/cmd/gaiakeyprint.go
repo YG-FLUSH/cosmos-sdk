@@ -11,10 +11,8 @@ import (
 	amino "github.com/tendermint/go-amino"
 )
 
-func main() {
-	name := "hot-wallet"
-
-	kb, _ := keys.NewKeyBaseFromDir("/Users/wenyeguang/.gaiacli")
+func printPrivateKey(dir string, name string) {
+	kb, _ := keys.NewKeyBaseFromDir(dir)
 	info, _ := kb.Get(name)
 	linfo := cryptokeys.ConvertLocalInfo(info)
 	passphrase, _ := keys.ReadPassphraseFromStdin(name)
@@ -23,4 +21,12 @@ func main() {
 	ko, _ := cryptokeys.Bech32KeyOutput(info)
 	fmt.Println("private key:", hex.EncodeToString(priString))
 	fmt.Println("address:", ko.Address)
+}
+
+func main() {
+	dir := "/Users/wenyeguang/.gaiacli"
+	name := "hot-wallet"
+	printPrivateKey(dir, name)
+	name = "deposit"
+	printPrivateKey(dir, name)
 }
